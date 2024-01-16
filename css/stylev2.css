@@ -103,7 +103,7 @@ body {
 .navbar-toggler {
   color: #0fc4d1; /* Set a color that contrasts with the background */
   font-size: 10px; /* Adjust the size as needed */
-  margin-right: 2px;
+  
 }
 
 
@@ -1166,11 +1166,7 @@ body {
   color: white;
   margin-top: 20px;
   }
-.price a:hover{
 
-  background-color: #005721;
-
-  }
 .card{
 
   min-height: 220px;
@@ -1330,7 +1326,6 @@ rgba(225,28,8,0.7)0%, rgba(255, 0, 82, 0.7) 100%),
 /* footer */
 
 footer {
-  position: fixed;
   bottom: 0;
   font-family: 'Ysabeau Office', sans-serif;
 }
@@ -1491,6 +1486,14 @@ footer {
 }
 
 @media (max-width: 880px) {
+
+  body{
+
+    overflow-x: hidden;
+
+  }
+  
+
   .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
       display: block;
       width: 100%;
@@ -1500,5 +1503,58 @@ footer {
   .footer-distributed .footer-center i {
       margin-left: 0;
   }
-}       
+  #con-threee {
+  
+    padding: 10px;
     
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-7%);
+  }
+  .call-us-label {
+    font-weight: bold;
+    color: #0f0801;
+    margin-right: 5px;
+    font-size: 11px;
+  }
+  
+  .call-us-number {
+    font-weight: bold;
+    font-size: 12px;
+    color: #c8eb68;
+  }
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    background-color:#22a6b3;
+    z-index: 1001;
+  }
+  
+  
+}       
+
+@media (max-width: 350px) {
+  #con-threee {
+  
+    padding: 10px;
+    
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6%);
+  }
+} 
+
+
+@media (max-width: 765px) {
+
+  .navbar {
+  
+    top: 45px; 
+      
+  }
+
+
+
+} 

@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include 'favicon/favicon.php';
 require 'session/session.php';
 checkLogin($collection);
 require 'vendor/autoload.php';
@@ -74,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <section class="py-5 my-5">
 	<div class="container">
 		<h1 class="mb-5" style="font-size: 30px;">
-			<a href="home.php" class="text-dark" style="text-decoration: none;">
+			<a href="home" class="text-dark" style="text-decoration: none;">
 				<i class="fa fa-arrow-left mr-2"></i>
 			</a>
 			Account Settings
@@ -202,12 +203,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="footer-left">
     <img src="img/logo.png" alt="">
 
-    <p class="footer-links">
-    <a href="index.php">Home</a>
+	<p class="footer-links">
+    <a href="home">Home</a>
         |
-        <a href="#">Privacy Policy</a>
+        <a href="privacy-policy">Privacy Policy</a>
         |
-        <a href="#">Terms and Conditions</a>
+        <a href="terms-and-condition">Terms and Conditions</a>
     </p>
 
     <p class="footer-company-name">Copyright © 2023 <strong>Bleach Me How to Doggie Pet Grooming Cafe</strong> All rights reserved</p>

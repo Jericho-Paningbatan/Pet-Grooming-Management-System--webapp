@@ -1,0 +1,23 @@
+
+RewriteEngine on
+
+RewriteRule ^home home.php  [NC,L]
+RewriteRule ^services-offered services.php  [NC,L]
+
+RewriteRule ^create-bookings book.php  [NC,L]
+RewriteRule ^contact-us contact-us.php  [NC,L]
+RewriteRule ^account account.php  [NC,L]
+RewriteRule ^password-reset reset.php  [NC,L]
+RewriteRule ^booking-history booking-history.php  [NC,L]
+RewriteRule ^about-us about-us.php  [NC,L]
+
+
+
+RewriteRule ^verification verification/verification.php  [NC,L]
+RewriteRule ^error-expired-link errors/invalid.php  [NC,L]
+
+RewriteRule ^privacy-policy policy/privacy-policy.php  [NC,L]
+RewriteRule ^terms-and-condition policy/terms-and-condition.php  [NC,L]
+RewriteRule ^faqs policy/faqs.php  [NC,L]
+
+

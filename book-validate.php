@@ -10,8 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $selectedDate = $_POST["selectedDate"];
         $bookingTime = $_POST["bookingtime"];
 
-        // Replace with your MongoDB query to check availability
-        // For example, if your bookings table is called "bookings":
         $connection = new MongoDB\Client("mongodb+srv://echoo:09611584813@group7.9lwukou.mongodb.net/");
         $collection = $connection->pet_grooming_system->bookings;
 

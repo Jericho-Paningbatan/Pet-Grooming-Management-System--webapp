@@ -1,6 +1,7 @@
 <?php 
 session_start();
 
+include 'favicon/favicon.php';
 require 'session/session.php';
 
 checkLogin($collection);
@@ -71,7 +72,7 @@ checkLogin($collection);
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg"  style="background-image: url(img/wave.gif); background-size: cover; background-repeat: no-repeat; box-shadow:  4px 6px -2px rgba(0, 0, 0, 0.9);">
   <div class="container" >
-    <a class="navbar-brand" href="home.php"><img src="img/logo.png?v=<?php echo time(); ?>" alt="Logo"></a>
+    <a class="navbar-brand" href="home"><img src="img/logo.png?v=<?php echo time(); ?>" alt="Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -79,19 +80,19 @@ checkLogin($collection);
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="home.php">Home</a>
+          <a class="nav-link" href="home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="book.php" style=" color: #dfdc51; font-weight:800;">Book Now</a>
+          <a class="nav-link" href="create-bookings" style=" color: #dfdc51; font-weight:800;">Book Now</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#service">Services</a>
+          <a class="nav-link" href="services-offered">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact-us.php" >Contact</a>
+          <a class="nav-link" href="contact-us" >Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About Us</a>
+          <a class="nav-link" href="about-us">About Us</a>
         </li>
        
       </ul>
@@ -104,8 +105,8 @@ checkLogin($collection);
     <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="account.php"><ion-icon name="person-circle"></ion-icon> My Account</a></li>
-    <li><a class="dropdown-item" href="booking-history.php"><ion-icon name="calendar-number"></ion-icon> Booking History</a></li>
+    <li><a class="dropdown-item" href="account"><ion-icon name="person-circle"></ion-icon> My Account</a></li>
+    <li><a class="dropdown-item" href="booking-history"><ion-icon name="calendar-number"></ion-icon> Booking History</a></li>
     <li><a class="dropdown-item" href="#"><ion-icon name="settings"></ion-icon> Settings</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="session/logout.php"><ion-icon name="log-out"></ion-icon> Logout</a></li>
@@ -131,13 +132,13 @@ checkLogin($collection);
       <button id="nextbtn" style="height:40px; width:40px; color:black;"><ion-icon name="chevron-forward-circle-outline" style="font-size:20px;"></ion-icon></button>
     </div>
     <div class="days-of-week">
+      <div class="day">Sun</div>
       <div class="day">Mon</div>
       <div class="day">Tue</div>
       <div class="day">Wed</div>
       <div class="day">Thu</div>
       <div class="day">Fri</div>
       <div class="day">Sat</div>
-      <div class="day">Sun</div>
     </div>
     <div class="dates-container">
       <div class="dates" id="calendarDates"></div>
@@ -320,7 +321,12 @@ checkLogin($collection);
     </div>
     <div class="form-group">
       <label for="petGender">Pet's Gender:</label>
-      <input type="text" id="petGender" required>
+      <select id="petGender" required>
+      <option value="" disabled selected style="display:none;">-Select Gender-</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+      </select>
+
     </div>
   </div>
   <div class="form-row">
@@ -366,11 +372,11 @@ checkLogin($collection);
     <img src="img/logo.png" alt="">
 
     <p class="footer-links">
-    <a href="index.php">Home</a>
+    <a href="home">Home</a>
         |
-        <a href="#">Privacy Policy</a>
+        <a href="privacy-policy">Privacy Policy</a>
         |
-        <a href="#">Terms and Conditions</a>
+        <a href="terms-and-condition">Terms and Conditions</a>
     </p>
 
     <p class="footer-company-name">Copyright © 2023 <strong>Bleach Me How to Doggie Pet Grooming Cafe</strong> All rights reserved</p>

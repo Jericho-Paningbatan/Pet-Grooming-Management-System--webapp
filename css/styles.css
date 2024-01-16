@@ -9,7 +9,7 @@
 }
 
 body{
-
+  background-color: #dfe6e9;
   overflow-x: hidden;
   font-family: 'Ysabeau Office', sans-serif;
 }
@@ -138,6 +138,12 @@ body{
   background-color: #83055d;
   color: #f2f2f2;
   border: none;
+}
+
+.form-group-btn .submitfpass{
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .form-group-btn {
@@ -457,6 +463,97 @@ body{
   text-align: center;
   padding-top: 5px; 
 }
+
+@media (max-width: 450px){
+
+  /* container */
+
+  #con-threee {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-top: 0px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0%);
+  }
+
+
+}
+
+@media (max-width: 390px){
+
+  /* container */
+
+  #con-threee {
+    background-color: #f9f9f9;
+    padding: 0px;
+    margin-top: 0px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0%);
+  }
+  .fa-envelope p a{
+
+    font-size: small;
+
+  }
+  .form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="number"],
+.input-group {
+  width: 98%;
+ 
+}
+
+
+}
+
+@media (max-width: 330px){
+
+  /* container */
+
+  #con-threee {
+    background-color: #f9f9f9;
+    padding: 0px;
+    margin-top: 0px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0%);
+  }
+  .fa-envelope p a{
+
+    font-size: 10px;
+
+  }
+  .form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="number"],
+.input-group {
+  width: 80%;
+ 
+}
+
+
+}
+
+@media (max-width: 990px){
+
+  /* container */
+
+  #con-threee {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-top: 0px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0%);
+  }
+
+
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .assurance-content {
@@ -475,7 +572,6 @@ body{
 /* footer */
 
 footer {
-  position: fixed;
   bottom: 0;
   font-family: 'Ysabeau Office', sans-serif;
 }
@@ -645,5 +741,266 @@ footer {
   .footer-distributed .footer-center i {
       margin-left: 0;
   }
-}       
+}
+
+@media (max-width: 450px){
+
+    /* container */
+
+    #con-threee {
+      background-color: #f9f9f9;
+      padding: 10px;
+      margin-top: 0px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transform: translateY(0);
+    }
+    .footer-left img {
+      
+      max-width: 100%;
+      height: auto;
+     
+    }
     
+
+}
+@media (max-width: 360px){
+
+
+  
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="number"],
+.input-group {
+  width: 89%;
+ 
+}
+}
+
+
+/* services */
+
+.wrapper-services{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #dfe6e9
+ 
+}
+
+.wrapper-services h1{
+
+  text-align: center;
+  font-size: 30px;
+  color: rgb(9, 148, 148);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 50px;
+
+  margin: 50px 0;
+  text-align: center;
+  font-weight: 500;
+
+}
+
+.wrapper-services h1::after{
+
+  content: "";
+  height: 5px;
+  width: 150px;
+  background-color:  #c9286b;;
+  border-radius: 10px;
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+
+}
+.wrapper-services p{
+
+  font-size: large;
+
+}
+.content-box{
+
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+}
+.price a {
+  display: inline-block;
+  background-color: #01850c;
+  border: 1px solid #01850c;
+  padding: 10px 35px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: white;
+  margin-top: 20px;
+  }
+
+.card{
+
+  min-height: 220px;
+  width: 300px;
+  width: calc((100% - 40px) / 4);
+  padding: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #cacaca;
+  margin: 10px 4px;
+ 
+  cursor: pointer;
+}
+
+.card i{
+
+  margin: 20px;
+  color: crimson;
+
+}
+.card h3{
+
+  margin-bottom: 19px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 20px;
+  color: #11927d;
+
+}
+.card p{
+  font-size: 12px;
+  text-align: center;
+  color: rgb(19, 20, 20);
+
+}
+.card img{
+
+  margin-bottom: 12px;
+
+}
+.card:hover i,
+.card:hover p{
+
+  color: white;
+
+}
+.card:hover h3{
+
+  font-weight: 600;
+  color: rgb(208, 224, 58);
+transition: 0.5s ease-in-out;
+}
+.card:hover{
+
+  transition: 0.5s ease-in-out;
+
+}
+.card:nth-child(1):hover{
+
+  background:linear-gradient(45deg,
+  rgba(225,28,8,0.7)0%, rgba(255, 0, 82, 0.7) 100%),
+  url('img/dog-cat.png');
+  background-size: cover;
+
+
+}
+
+
+.card:nth-child(2):hover{
+
+  background:linear-gradient(45deg,
+  rgba(225,28,8,0.7)0%, rgba(255, 0, 82, 0.7) 100%),
+  url('img/dog-cat.png');
+  background-size: cover;
+
+}
+.card:nth-child(3):hover{
+
+  background:linear-gradient(45deg,
+  rgba(225,28,8,0.7)0%, rgba(255, 0, 82, 0.7) 100%),
+  url('img/dog-cat.png');
+  background-size: cover;
+
+}
+.card:nth-child(4):hover{
+
+  background:linear-gradient(45deg,
+  rgba(225,28,8,0.7)0%, rgba(255, 0, 82, 0.7) 100%),
+  url('img/dog-cat.png');
+  background-size: cover;
+
+  }
+
+
+.card:nth-child(5):hover{
+
+  background:linear-gradient(45deg,
+  rgba(225,28,8,0.7)0%, rgba(255, 0, 82, 0.7) 100%),
+  url('img/dog-cat.png');
+  background-size: cover;
+
+  }
+
+
+.card:nth-child(6):hover{
+
+  background:linear-gradient(45deg,
+  rgba(225,28,8,0.7)0%, rgba(255, 0, 82, 0.7) 100%),
+  url('img/dog-cat.png');
+  background-size: cover;
+
+  }
+
+
+.card:nth-child(7):hover{
+
+  background:linear-gradient(45deg,
+rgba(225,28,8,0.7)0%, rgba(255, 0, 82, 0.7) 100%),
+  url('img/dog-cat.png');
+  background-size: cover;
+
+  }
+
+@media(max-width: 991px)
+{
+
+  .wrapper-services{
+
+      padding: 25px;
+      }
+  .wrapper-services h1{
+
+      font-size: 2.5em;
+      font-weight: 600;
+
+      }
+
+  .content-box{
+
+     flex-direction: column;
+     width: 100%;
+
+      }
+  .card{
+      
+      min-width: 300px;
+      margin: 10px auto;
+
+      }
+
+}

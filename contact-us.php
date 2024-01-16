@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+include 'favicon/favicon.php';
 require 'session/session.php';
 
 checkLogin($collection);
@@ -33,8 +33,8 @@ checkLogin($collection);
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/book.css">
+    <link rel="stylesheet" href="css/contact.css?v=1.2">
+    <link rel="stylesheet" href="css/book.css?v=1.0">
     
 </head>
   <body>
@@ -67,7 +67,7 @@ checkLogin($collection);
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg"  style="background-image: url(img/wave.gif); background-size: cover; background-repeat: no-repeat;">
   <div class="container">
-    <a class="navbar-brand" href="home.php"><img src="img/logo.png?v=<?php echo time(); ?>" alt="Logo"></a>
+    <a class="navbar-brand" href="home"><img src="img/logo.png?v=<?php echo time(); ?>" alt="Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -75,19 +75,19 @@ checkLogin($collection);
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link homes" href="home.php" >Home</a>
+          <a class="nav-link homes" href="home" >Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="book.php">Book Now</a>
+          <a class="nav-link" href="create-bookings">Book Now</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#service">Services</a>
+          <a class="nav-link" href="services-offered">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact-us.php" style=" color: #dfdc51; font-weight:800;">Contact</a>
+          <a class="nav-link" href="contact-us" style=" color: #dfdc51; font-weight:800;">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About Us</a>
+          <a class="nav-link" href="about-us">About Us</a>
         </li>
        
       </ul>
@@ -161,7 +161,7 @@ checkLogin($collection);
 
                                 <div class="inputbox">
                                     <span>Email*</span>
-                                    <input type="Email" value="<?php echo $_SESSION['email']; ?>" readonly name="email" id="email">
+                                    <input type="email" value="<?php echo $_SESSION['email']; ?>" readonly name="email" id="email">
 
                                 </div>
 
@@ -250,11 +250,11 @@ checkLogin($collection);
     <img src="img/logo.png" alt="">
 
     <p class="footer-links">
-    <a href="index.php">Home</a>
+    <a href="home">Home</a>
         |
-        <a href="#">Privacy Policy</a>
+        <a href="privacy-policy">Privacy Policy</a>
         |
-        <a href="#">Terms and Conditions</a>
+        <a href="terms-and-condition">Terms and Conditions</a>
     </p>
 
     <p class="footer-company-name">Copyright © 2023 <strong>Bleach Me How to Doggie Pet Grooming Cafe</strong> All rights reserved</p>

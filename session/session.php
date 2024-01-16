@@ -12,7 +12,7 @@ function isLoggedIn()
 function checkLogin($collection) // Pass $collection as a parameter
 {
     if (!isLoggedIn()) {
-        header('Location: index.php');
+        header('Location: https://bleachmehowtodoggie.com/');
         exit;
     }
 

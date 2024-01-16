@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'favicon/favicon.php';
 require 'session/session.php';
 checkLogin($collection);
 require 'vendor/autoload.php';

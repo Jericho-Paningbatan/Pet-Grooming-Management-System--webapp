@@ -1,6 +1,7 @@
 <?php 
 
 session_start();
+include 'favicon/favicon.php';
 require 'vendor/autoload.php';
 
 require 'database/connection.php';
@@ -8,7 +9,7 @@ require 'database/connection.php';
 // Check if the user is logged in
 if (isset($_SESSION['user_id'])) {
     // Redirect the user to home.php if logged in
-    header('Location: home.php');
+    header('Location: home');
     exit;
 }
 
@@ -20,7 +21,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - Bleach me how to Doggie Pet Grooming Cafe</title>
+    <title>Bleach me how to Doggie Pet Grooming Cafe</title>
 
      
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
@@ -34,9 +35,7 @@ if (isset($_SESSION['user_id'])) {
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-         
-
-          <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.9">
 
 </head>
 <body >
@@ -67,7 +66,14 @@ if (isset($_SESSION['user_id'])) {
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg" style="background-image: url(img/wave.gif); background-size: cover; background-repeat: no-repeat;">
   <div class="container">
-    <a class="navbar-brand" href="home.php"><img src="img/logo.png?v=<?php echo time(); ?>" alt="Logo"></a>
+    <a class="navbar-brand" href="home"><img src="img/logo.png?v=<?php echo time(); ?>" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+
     <div class="btns-nav">
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal" style="border-radius: 8px;">
   Sign In
@@ -75,21 +81,25 @@ if (isset($_SESSION['user_id'])) {
 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Sign Up
 </button>
+</ul>
     </div>
-   
+</div>
   </div>
 </nav>
 
   
+
+
+
 <!-- Modal Login-->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header" style="background-color:#83055d; color:white;">
+      <div class="modal-header" style="background: linear-gradient(90deg, #fd79a8, #6c5ce7);">
         <h1 class="modal-title fs-5" id="loginModalLabel">Welcome Back!!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="background-color:#bdc3c7;">
         <form class="form" method="POST" action="login.php" id="login-form">
           <div class="form-heading">
             <h3>SIGN IN</h3>
@@ -108,27 +118,30 @@ if (isset($_SESSION['user_id'])) {
     <input type="password" id="passwords" name="passwords" placeholder="Password" required>
   </div>
            <div class="form-group-bot"> 
-           <!--<div class="form-check" style="margin-bottom: 15px;">
+           <!-- <div class="form-check" style="margin-bottom: 15px;">
               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
               <label class="form-check-label" for="flexCheckDefault">
                 Show Password?
               </label>
             </div> -->
             <div class="form-group">
-              <a href="#" class="link-a">Forgot Password</a>
+              <a href="#" class="link-a" data-bs-toggle="modal" data-bs-target="#fpassModal">Forgot Password</a>
             </div>
           </div>
+          <div class="g-recaptcha" data-sitekey="6LfeoxUpAAAAAAdxXkMdan5obtHwYRuskzTd_0tT" style="margin-bottom:25px; margin-left:23px;" required></div>
+
           <div class="form-group-btn">
-            <button type="submit" name="submitLogin" id="submitLogin">Login</button>
+            <button  name="submitLogin" id="submitLogin"  onclick="validateForm()">Login</button>
+
           </div>
           <div class="divider">
             <p>--OR--</p>
           </div>
           <div class="form-group-btn">
-            <button class="createbtn" type="button" name="createbtn" id="createbtn">Create Account</button>
+            <button class="createbtn" type="button" name="createbtn" id="createbtn" onclick="openModal()">Create Account</button>
           </div>
           <div class="form-group-down">
-            Don't have an account? <a href="#" class="link-a"> Register</a>
+            Don't have an account? <a href="#" class="link-a" onclick="openModal()"> Register</a>
           </div>
         </form>
       </div>
@@ -141,15 +154,55 @@ if (isset($_SESSION['user_id'])) {
 
 
 
+<!-- Forgot Pass Modal -->
+<div class="modal fade" id="fpassModal" tabindex="-1" aria-labelledby="fpassModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background: linear-gradient(90deg, #fd79a8, #6c5ce7);">
+        <h1 class="modal-title fs-5" id="fpassModalLabel">Forgot Password</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="background-color:#bdc3c7;">
+        <form class="form" method="POST" id="fpass-form">
+          <div class="form-heading">
+            <h3>Password Change Link</h3>
+          </div>
+            
+          <div class="form-group">
+              <label for="emails">
+                <i class="fa fa-envelope"></i> Email:
+              </label>
+              <input type="email" id="f-email" name="f-email" placeholder="Email" required>
+              <span id="fpass-errors" class="error-message"></span><br>
+              <span id="message" class="error-message"></span>
+
+        </div>
+          
+          <div class="form-group-btn">
+            <button class="submitfpass" type="submit" name="submitfpass" id="submitfpass">Send</button>
+          </div>
+  
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <!-- Modal Register -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#83055d;color:white;">
+            <div class="modal-header" style="background: linear-gradient(90deg, #fd79a8, #6c5ce7);">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Join Our Pet Care</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="background-color:#bdc3c7;">
             <form id="registrationForm" class="form" method="POST" action="register.php">
     <div class="form-heading">
         <h3>REGISTER NOW</h3>
@@ -197,7 +250,7 @@ if (isset($_SESSION['user_id'])) {
                     <i class="fa fa-venus-mars"></i> Gender:
                 </label>
                 <div class="input-group">
-                    <select class="form-select form-select-sm" id="gender" name="gender" required>
+                    <select class="form-select form-select-sm" id="gender" name="gender" style="background-color: rgb(224, 224, 224);" required>
                         <option value="" disabled selected style="display:none;">-Choose Gender-</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -213,6 +266,7 @@ if (isset($_SESSION['user_id'])) {
                     <i class="fa fa-lock"></i> Password:
                 </label>
                 <input type="password" id="password" name="password" placeholder="Password" required>
+                <span id="password-error" class="error-message"></span>
             </div>
             <div class="col">
                 <label for="confirm-password">
@@ -239,7 +293,7 @@ if (isset($_SESSION['user_id'])) {
     <button type="submit" name="submitRegistration" id="submitRegistration" title="Please check the checkbox first">Create</button>
     </div>
     <div class="form-group-down">
-        Do you have an account? <a href="#" class="link-a"> Sign in</a>
+        Do you have an account? <a href="#" class="link-a" onclick="openModal2()"> Sign in</a>
     </div>
 </form>
 
@@ -342,6 +396,93 @@ if (isset($_SESSION['user_id'])) {
 </div>
 </section>
 
+<!-- services -->
+
+<section class="services-sec">
+
+<div class="wrapper-services">
+
+    <h1>Our Services</h1>
+    <p>Alacarte Services</p>
+
+    <div class="content-box">
+
+        <div class="card" >
+            <img src="img/ear-cleaning.png" alt="">
+           
+            <h3>Nail Trimming</h3>
+            <p>Maecenas et leo ut neque lacinia interdum. Ut non molestie tortor. 
+            Aliquam dignissim scelerisque orci, nec condimentum massa luctus molestie.</p>
+            <div class="price">
+                <a href="">Price: ₱100</a>
+            </div>
+        </div>
+
+        <div class="card" >
+            <img src="img/ear-cleaning.png" alt="">
+            <h3>Ear Cleaning</h3>
+            <p>Maecenas et leo ut neque lacinia interdum. Ut non molestie tortor. 
+            Aliquam dignissim scelerisque orci, nec condimentum massa luctus molestie.</p>
+            <div class="price">
+                <a href="">Price: ₱100</a>
+            </div>
+        </div>
+
+        <div class="card" >
+            <img src="img/ear-cleaning.png" alt="">
+            <h3>Face Trimming</h3>
+            <p>Maecenas et leo ut neque lacinia interdum. Ut non molestie tortor. 
+            Aliquam dignissim scelerisque orci, nec condimentum massa luctus molestie.</p>
+            <div class="price">
+                <a href="">Price: ₱100</a>
+            </div>
+        </div>
+
+        <div class="card" >
+            <img src="img/ear-cleaning.png" alt="">
+            <h3>Demmating</h3>
+            <p>Maecenas et leo ut neque lacinia interdum. Ut non molestie tortor. 
+            Aliquam dignissim scelerisque orci, nec condimentum massa luctus molestie.</p>
+            <div class="price">
+                <a href="">Price: ₱100</a>
+            </div>
+        </div>
+
+        <div class="card" >
+            <img src="img/ear-cleaning.png" alt="">
+            <h3>Paw Shave</h3>
+            <p>Maecenas et leo ut neque lacinia interdum. Ut non molestie tortor. 
+            Aliquam dignissim scelerisque orci, nec condimentum massa luctus molestie.</p>
+            <div class="price">
+                <a href="">Price: ₱100</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/ear-cleaning.png" alt="">
+            <h3>Teet Brushing</h3>
+            <p>Maecenas et leo ut neque lacinia interdum. Ut non molestie tortor. 
+            Aliquam dignissim scelerisque orci, nec condimentum massa luctus molestie.</p>
+            <div class="price">
+                <a href="">Price: ₱100</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/ear-cleaning.png" alt="">
+            <h3>Bath and Blowdry</h3>
+            <p>Maecenas et leo ut neque lacinia interdum. Ut non molestie tortor. 
+            Aliquam dignissim scelerisque orci, nec condimentum massa luctus molestie.</p>
+            <div class="price">
+                <a href="">Price: ₱100</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</section>
+
 
 <!-- footer -->
 
@@ -352,11 +493,11 @@ if (isset($_SESSION['user_id'])) {
     <img src="img/logo.png" alt="">
 
     <p class="footer-links">
-    <a href="#">Home</a>
+    <a href="home">Home</a>
         |
-        <a href="#">Privacy Policy</a>
+        <a href="privacy-policy">Privacy Policy</a>
         |
-        <a href="#">Terms and Conditions</a>
+        <a href="terms-and-condition">Terms and Conditions</a>
     </p>
 
     <p class="footer-company-name">Copyright © 2023 <strong>Bleach Me How to Doggie Pet Grooming Cafe</strong> All rights reserved</p>
@@ -392,17 +533,23 @@ if (isset($_SESSION['user_id'])) {
 </div>
 </footer>
 
+<script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+  
        
         <script src="js/index.js"></script>
-       
+        <script src="js/forgot.js"></script>
 
-
+        
 </body>
 </html>

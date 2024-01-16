@@ -1,19 +1,32 @@
+
 // preloader
+
 window.addEventListener('load', function() {
     setTimeout(function() {
-      document.querySelector('.preloader').style.display = 'none';
+        var preloader = document.querySelector('.preloader');
+        if (preloader && preloader.style.display !== 'none') {
+            preloader.style.display = 'none';
+        }
     }, 2000);
-  
+});
+
+document.addEventListener('DOMContentLoaded', function () {
     const text = "Bleach Me How to Doggie";
     let index = 0;
+
     const typingEffect = setInterval(() => {
-      document.querySelector('.typing-texts').textContent = text.slice(0, index);
-      index++;
-      if (index > text.length) {
-        clearInterval(typingEffect);
-      }
+        const typingTexts = document.querySelector('.typing-texts');
+        if (typingTexts) {
+            typingTexts.textContent = text.slice(0, index);
+            index++;
+            if (index > text.length) {
+                clearInterval(typingEffect);
+            }
+        }
     }, 70);
-  });
+});
+
+
   
 
 // typing effects for carousel
@@ -53,34 +66,49 @@ function resetEffect() {
 
 typeEffect();
 
-// password validateS
 var passwordInput = document.getElementById("password");
-    var confirmPasswordInput = document.getElementById("confirm-password");
-    var confirmPasswordError = document.getElementById("confirm-password-error");
-    var submitButton = document.getElementById("submitRegistration");
+var passwordError = document.getElementById("password-error");
+var confirmPasswordInput = document.getElementById("confirm-password");
+var confirmPasswordError = document.getElementById("confirm-password-error");
+var submitButton = document.getElementById("submitRegistration");
 
-    function validatePasswords() {
-        if (passwordInput.value !== confirmPasswordInput.value) {
-            confirmPasswordError.textContent = "Passwords do not match.";
-            disableSubmitButton();
-        } else {
-            confirmPasswordError.textContent = "";
-            enableSubmitButton();
-        }
+var emailExists = false;
+var phoneExists = false;
+var passwordMatch = false;
+var passwordLength = false;
+
+function validatePasswords() {
+    if (passwordInput.value !== confirmPasswordInput.value) {
+        confirmPasswordError.textContent = "Passwords do not match.";
+        passwordMatch = false;
+    } else {
+        confirmPasswordError.textContent = "";
+        passwordMatch = true;
     }
+    validateForm();
+}
 
-    passwordInput.addEventListener("input", validatePasswords);
-    confirmPasswordInput.addEventListener("input", validatePasswords);
-
-    function disableSubmitButton() {
-        submitButton.disabled = true;
+function passCharValidate() {
+    if (passwordInput.value.length < 8) {
+        passwordError.textContent = "Password must be at least 8 characters";
+        passwordLength = false;
+    } else {
+        passwordError.textContent = "";
+        passwordLength = true;
     }
+    validateForm();
+}
 
-    function enableSubmitButton() {
-        submitButton.disabled = false;
-    }
+passwordInput.addEventListener("input", passCharValidate);
+confirmPasswordInput.addEventListener("input", validatePasswords);
 
+function disableSubmitButton() {
+    submitButton.disabled = true;
+}
 
+function enableSubmitButton() {
+    submitButton.disabled = false;
+}
 
 
 
@@ -206,12 +234,12 @@ var passwordInput = document.getElementById("password");
   }
   
   function validateForm() {
-      if (emailExists || phoneExists || !myCheckbox.checked) {
-          disableSubmitButton();
-      } else {
-          enableSubmitButton();
-      }
-  }
+    if (emailExists || phoneExists || !myCheckbox.checked || !passwordMatch || !passwordLength) {
+        disableSubmitButton();
+    } else {
+        enableSubmitButton();
+    }
+}
   
   function disableSubmitButton() {
       submitBtn.disabled = true;
@@ -277,7 +305,7 @@ function checkEmailStatus(email) {
     xhr.send(formData);
 }
 
-// login validation
+// login validate
 document.getElementById('login-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -294,7 +322,7 @@ document.getElementById('login-form').addEventListener('submit', function (event
         // Handle the response from the PHP script
         if (data === 'success') {
             // Login successful, redirect to a new page or do other actions
-            window.location.href = 'home.php';
+            window.location.href = 'home';
         } else {
             // Display the error message in the login-errors span
             document.getElementById('login-errors').innerText = data;
@@ -307,6 +335,29 @@ document.getElementById('login-form').addEventListener('submit', function (event
         document.getElementById('login-errors').innerText = 'An error occurred during login.';
     });
 });
+
+
+
+
+var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+var exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+
+function openModal() {
+  // Hide the login modal before showing the example modal
+  loginModal.hide();
+
+  // Show the example modal after the login modal is hidden
+  exampleModal.show();
+}
+
+function openModal2() {
+    // Hide the login modal before showing the example modal
+    loginModal.show();
+  
+    // Show the example modal after the login modal is hidden
+    exampleModal.hide();
+  }
+
 
 
 

@@ -1,5 +1,8 @@
 <?php 
 session_start();
+include 'favicon/favicon.php';
+require 'vendor/autoload.php';
+require 'database/connection.php';
 
 require 'session/session.php';
 
@@ -33,7 +36,7 @@ checkLogin($collection);
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
-  <link rel="stylesheet" href="css/stylev2.css">
+  <link rel="stylesheet" href="css/stylev2.css?v=2.3">
   <link rel="stylesheet" href="css/gallery.css">
   
   
@@ -85,7 +88,7 @@ checkLogin($collection);
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg"  style="background-image: url(img/wave.gif); background-size: cover; background-repeat: no-repeat;">
   <div class="container">
-    <a class="navbar-brand" href="home.php"><img src="img/logo.png?v=<?php echo time(); ?>" alt="Logo"></a>
+    <a class="navbar-brand" href="home"><img src="img/logo.png?v=<?php echo time(); ?>" alt="Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -93,19 +96,19 @@ checkLogin($collection);
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link homes" href="home.php" style=" color: #dfdc51; font-weight:800;">Home</a>
+          <a class="nav-link homes" href="home" style=" color: #dfdc51; font-weight:800;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="book.php">Book Now</a>
+          <a class="nav-link" href="create-bookings">Book Now</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#service">Services</a>
+          <a class="nav-link" href="services-offered">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact-us.php">Contact</a>
+          <a class="nav-link" href="contact-us">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About Us</a>
+          <a class="nav-link" href="about-us">About Us</a>
         </li>
        
       </ul>
@@ -118,8 +121,8 @@ checkLogin($collection);
     <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>
   </button>
   <ul class="dropdown-menu" style=" font-family: 'Ysabeau Office', sans-serif;">
-  <li><a class="dropdown-item" href="account.php"><ion-icon name="person-circle"></ion-icon> My Account</a></li>
-    <li><a class="dropdown-item" href="booking-history.php"><ion-icon name="calendar-number"></ion-icon> Booking History</a></li>
+  <li><a class="dropdown-item" href="account"><ion-icon name="person-circle"></ion-icon> My Account</a></li>
+    <li><a class="dropdown-item" href="booking-history"><ion-icon name="calendar-number"></ion-icon> Booking History</a></li>
     <li><a class="dropdown-item" href="#"><ion-icon name="settings"></ion-icon> Settings</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="session/logout.php"><ion-icon name="log-out"></ion-icon> Logout</a></li>
@@ -420,12 +423,10 @@ checkLogin($collection);
             <h1>about us</h1>
             <div class="wrapper">
                 <div class="content">
-                    <h3> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h3>
-                    <p>Sed nec est elit. In vestibulum nibh eu lectus tincidunt varius. Quisque ac metus nec sapien venenatis elementum. Sed gravida in elit ac gravida. Pellentesque a congue tortor.
-                         Integer vel nisi nec elit aliquet eleifend nec ut libero. Donec vitae ligula a est tristique tristique. Sed eu cursus felis. Etiam in urna massa.</p>
-
-                         <p>Sed nec est elit. In vestibulum nibh eu lectus tincidunt varius. Quisque ac metus nec sapien venenatis elementum. Sed gravida in elit ac gravida. Pellentesque a congue tortor.
-                          Integer vel nisi nec elit aliquet eleifend nec ut libero. Donec vitae ligula a est tristique tristique. Sed eu cursus felis. Etiam in urna massa.</p>
+                    <h3> Welcome to Bleach Me How To Doggie Pet Grooming Cafe,
+        Paws Lovers. </h3>
+                    <p> Now a date with your pets were made cool, relaxing, and enjoyable. We bring you Bleach Me How To Doggie. The very first Pet Grooming Cafe right in the heart of Marikina City. Enjoy our cozy and instagrammable place for your picture perfect moments. Definitely, it really feels like home as our trained staff and baristas welcome you with their warm smiles and excellent customer service.
+                         <p>You can truly enjoy our signature drinks as we only serve quality ingredients and freshly brewed coffee. Your pets deserve the very best. Let them experience the luxury of our grooving done by our professional group. Bleach Me How To Doggie don try the rest, you deserve the best.</p>
                     <div class="button">
                         <a href="">read more</a>
                     </div>
@@ -448,11 +449,11 @@ checkLogin($collection);
     <img src="img/logo.png" alt="">
 
     <p class="footer-links">
-    <a href="index.php">Home</a>
+    <a href="home">Home</a>
         |
-        <a href="#">Privacy Policy</a>
+        <a href="privacy-policy">Privacy Policy</a>
         |
-        <a href="#">Terms and Conditions</a>
+        <a href="terms-and-condition">Terms and Conditions</a>
     </p>
 
     <p class="footer-company-name">Copyright © 2023 <strong>Bleach Me How to Doggie Pet Grooming Cafe</strong> All rights reserved</p>
