@@ -58,10 +58,10 @@ $insertResult = $collection->insertOne($document);
 
     // SMTP configuration for Zoho Mail
     $mail->isSMTP();
-    $mail->Host = 'smtp.zoho.com'; 
+    $mail->Host = ''; 
     $mail->SMTPAuth = true;
     $mail->Username = 'verification@bleachmehowtodoggie.com'; 
-    $mail->Password = 'g56WWdk8sGcx'; 
+    $mail->Password = ''; 
     $mail->SMTPSecure = 'tls'; 
     $mail->Port = 587; 
 
