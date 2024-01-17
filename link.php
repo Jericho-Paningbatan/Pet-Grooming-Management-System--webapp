@@ -42,13 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['f-email']) && isset($_
         $mail = new PHPMailer(true);
 
         // Server settings
-        $mail->isSMTP();
-        $mail->Host       = ''; 
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'noreply-reset@bleachmehowtodoggie.com'; 
-        $mail->Password   = ''; 
-        $mail->SMTPSecure = 'tls'; 
-        $mail->Port       = 587;
+        // $mail->isSMTP();
+        // $mail->Host       = ''; 
+        // $mail->SMTPAuth   = true;
+        // $mail->Username   = ''; 
+        // $mail->Password   = ''; 
+        // $mail->SMTPSecure = 'tls'; 
+        // $mail->Port       = '';
 
         // Recipients
         $mail->setFrom('noreply-reset@bleachmehowtodoggie.com', 'Bleach Me How to Doggie');
