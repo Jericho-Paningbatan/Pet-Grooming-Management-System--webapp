@@ -56,14 +56,14 @@ $insertResult = $collection->insertOne($document);
 
      $mail = new PHPMailer(true);
 
-    // SMTP configuration for Zoho Mail
-    $mail->isSMTP();
-    $mail->Host = ''; 
-    $mail->SMTPAuth = true;
-    $mail->Username = 'verification@bleachmehowtodoggie.com'; 
-    $mail->Password = ''; 
-    $mail->SMTPSecure = 'tls'; 
-    $mail->Port = 587; 
+    // // SMTP configuration for Zoho Mail
+    // $mail->isSMTP();
+    // $mail->Host = ''; 
+    // $mail->SMTPAuth = true;
+    // $mail->Username = ''; 
+    // $mail->Password = ''; 
+    // $mail->SMTPSecure = 'tls'; 
+    // $mail->Port = ''; 
 
     // Sender and recipient
     $mail->setFrom('verification@bleachmehowtodoggie.com', 'Bleach Me How to Doggie');
