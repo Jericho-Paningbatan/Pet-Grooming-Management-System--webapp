@@ -43,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['f-email']) && isset($_
 
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = 'smtp.zoho.com'; 
+        $mail->Host       = ''; 
         $mail->SMTPAuth   = true;
         $mail->Username   = 'noreply-reset@bleachmehowtodoggie.com'; 
-        $mail->Password   = 'kF592TKPzv9G'; 
+        $mail->Password   = ''; 
         $mail->SMTPSecure = 'tls'; 
         $mail->Port       = 587;
 
